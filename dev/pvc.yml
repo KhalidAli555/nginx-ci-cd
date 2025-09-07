@@ -1,0 +1,13 @@
+# save as nginx-pvc.yml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-pvc
+  namespace: dev
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+

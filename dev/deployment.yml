@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-app
+  namespace: dev
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx-app
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+        - name: nginx
+          image: us.icr.io/khalidalinginx/nginx:latest
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: nginx-storage
+              mountPath: /usr/share/nginx/html
+      volumes:
+        - name: nginx-storage
+          persistentVolumeClaim:
+            claimName: nginx-pvc
+      imagePullSecrets:
+        - name: ibmcr-secret
+
