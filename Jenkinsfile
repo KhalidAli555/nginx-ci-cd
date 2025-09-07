@@ -69,4 +69,4 @@ pipeline {
                 echo "Deploying Nginx App to Prod..."
                 sh "kubectl apply -f prod/deployment.yml -n ${PROD_NAMESPACE}"
                 sh "kubectl apply -f prod/service.yml -n ${PROD_NAMESPACE}"
-                sh "kubectl apply -f prod/pvc.yml -n ${PROD_NAMESPACE
+                sh "kubectl apply -f prod/pvc.yml -n ${PROD_NAMESPACE}"
