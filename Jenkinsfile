@@ -70,3 +70,17 @@ pipeline {
                 sh "kubectl apply -f prod/deployment.yml -n ${PROD_NAMESPACE}"
                 sh "kubectl apply -f prod/service.yml -n ${PROD_NAMESPACE}"
                 sh "kubectl apply -f prod/pvc.yml -n ${PROD_NAMESPACE}"
+                sh "kubectl get pods -n ${PROD_NAMESPACE}"
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "Pipeline completed successfully!"
+        }
+        failure {
+            echo "Pipeline failed!"
+        }
+    }
+}
