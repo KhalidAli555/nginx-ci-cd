@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo "Cloning GitHub repository..."
-                git url: 'https://github.com/<your-username>/nginx-ci-cd.git', branch: 'main'
+                git url: 'https://github.com/KhalidAli555/nginx-ci-cd.git', branch: 'main'
             }
         }
 
